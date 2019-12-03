@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+  werma-emulator:
+    build: client
+    hostname: werma-emulator
+    container_name: werma-emulator
+    depends_on:
+      - broker
+
+  broker:
+    image: erlio/docker-vernemq:1.9.2
+    hostname: broker
+    environment:
+      DOCKER_VERNEMQ_ALLOW_ANONYMOUS: 'on'
+    ports:
+      - 1883:1883
+    command: ["start_vernemq", "--name", "vernemq_test"]
