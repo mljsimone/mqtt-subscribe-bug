@@ -12,6 +12,7 @@ client.on('connect', () => {
   client.subscribe(topic, (err, grant) => {
     if (!err) console.log('Subscribed')
     else console.log('Failed to subscribe')
+    console.log("Grants: ", grant)
     //client.publish(topic, "Hello world")
   })
 })
